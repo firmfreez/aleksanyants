@@ -19,6 +19,9 @@ class MainActivity : BaseNavigationActivity() {
         setContentView(getLayoutResId())
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+//        TODO: Сделать нормально
+        viewModel.showPostsFragment()
     }
 
     override fun onBackPressed() {

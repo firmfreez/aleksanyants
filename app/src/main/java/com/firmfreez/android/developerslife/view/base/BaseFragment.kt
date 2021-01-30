@@ -9,7 +9,7 @@ import com.firmfreez.android.developerslife.R
 import com.firmfreez.android.developerslife.di.App
 import com.google.android.material.appbar.MaterialToolbar
 
-class BaseFragment: Fragment() {
+abstract class BaseFragment: Fragment() {
     var toolbar: MaterialToolbar? = null
 
     init {
