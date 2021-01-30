@@ -26,6 +26,8 @@ class NetworkModule {
         return UnsafeOkHttpClient.getUnsafeOkHttpClient()
     }
 
+    @Provides
+    @Singleton
     fun provideApi(gson: Gson, okHttpClient: OkHttpClient): Api {
         val retrofit = Retrofit.Builder()
             .baseUrl(Api.BACK_URL)

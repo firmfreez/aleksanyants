@@ -3,11 +3,14 @@ package com.firmfreez.android.developerslife.di.components
 import android.content.Context
 import com.firmfreez.android.developerslife.di.modules.AppNavigationModule
 import com.firmfreez.android.developerslife.di.modules.NetworkModule
+import com.firmfreez.android.developerslife.network.Api
+import com.firmfreez.android.developerslife.services.RandomPostService
 import com.firmfreez.android.developerslife.view.base.BaseActivity
 import com.firmfreez.android.developerslife.view.base.BaseFragment
 import com.firmfreez.android.developerslife.view.base.BaseNavigationActivity
 import com.firmfreez.android.developerslife.view.main.MainActivity
 import com.firmfreez.android.developerslife.view.main.MainViewModel
+import com.firmfreez.android.developerslife.view.posts.random.RandomPostViewModel
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 import dagger.BindsInstance
@@ -29,6 +32,11 @@ interface AppComponent {
 
 //    ViewModels
     fun inject(mainViewModel: MainViewModel)
+    fun inject(randomPostViewModel: RandomPostViewModel)
+
+//    Services
+    fun inject(randomPostService: RandomPostService)
+
 
     @Component.Factory
     interface Factory {

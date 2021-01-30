@@ -18,8 +18,9 @@ class MainActivity : BaseNavigationActivity() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-//        TODO: Сделать нормально
-        viewModel.showPostsFragment()
+        if(savedInstanceState == null) {
+            viewModel.showPostsFragment()
+        }
     }
 
     override fun onBackPressed() {
