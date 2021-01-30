@@ -1,9 +1,7 @@
 package com.firmfreez.android.developerslife.view.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.firmfreez.android.developerslife.R
 import com.firmfreez.android.developerslife.di.App
 import com.firmfreez.android.developerslife.view.base.BaseNavigationActivity
 

@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.firmfreez.android.developerslife.R
 import com.firmfreez.android.developerslife.databinding.FragmentPostsBinding
 import com.firmfreez.android.developerslife.view.base.BaseFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 class PostsFragment: BaseFragment() {
     private lateinit var binding: FragmentPostsBinding
@@ -18,8 +20,20 @@ class PostsFragment: BaseFragment() {
     ): View? {
         binding = FragmentPostsBinding.inflate(inflater, container, false)
         binding.viewModel = ViewModelProvider(this).get(PostsViewModel::class.java)
-        setToolBar("Лол", false, binding.root)
+        binding.viewPager.adapter = PostTypesAdapter(this)
+        setToolBar("Developers Life", false, binding.root, R.color.white, R.color.black)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when(position) {
+                0 -> tab.text = "Случайные"
+                1 -> tab.text = "Последние"
+                2 -> tab.text = "Лучшие"
+                3 -> tab.text = "Горячие"
+            }
+        }.attach()
     }
 
     companion object {
