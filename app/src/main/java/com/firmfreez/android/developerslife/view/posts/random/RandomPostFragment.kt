@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withC
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.firmfreez.android.developerslife.databinding.FragmentRandomPostBinding
+import com.firmfreez.android.developerslife.extentions.setCountDownListener
 import com.firmfreez.android.developerslife.models.Post
 import com.firmfreez.android.developerslife.view.base.BaseFragment
 import kotlinx.android.synthetic.main.connection_error_main.view.*
@@ -36,11 +37,11 @@ class RandomPostFragment: BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.next.setOnClickListener {
+        binding.next.setCountDownListener(300L) {
             nextClickHandle()
         }
 
-        binding.previous.setOnClickListener {
+        binding.previous.setCountDownListener(300L) {
             prevClickHandle()
         }
 
