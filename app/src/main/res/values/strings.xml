@@ -2,4 +2,7 @@
     <string name="app_name">DevelopersLife</string>
 
     <string name="loading">Загрузка...</string>
+    <string name="data_error">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+    <string name="repeat_btn">Повторить</string>
+    <string name="not_found">Не найдено записей.</string>
 </resources>

@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.firmfreez.android.developerslife.databinding.FragmentRandomPostBinding
+import com.firmfreez.android.developerslife.models.Post
 import com.firmfreez.android.developerslife.view.base.BaseFragment
+import kotlinx.android.synthetic.main.connection_error_main.view.*
 import kotlinx.android.synthetic.main.loader_main.view.*
 import kotlinx.android.synthetic.main.post_item.view.*
 
@@ -26,34 +30,65 @@ class RandomPostFragment: BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRandomPostBinding.inflate(inflater, container, false)
+        binding.post.post_loader?.isVisible = true
         binding.viewModel = ViewModelProvider(this).get(RandomPostViewModel::class.java)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.next.setOnClickListener {
-            binding.post.post_loader?.isVisible = true
-            binding.viewModel?.loadNextPost()
+            nextClickHandle()
         }
 
         binding.previous.setOnClickListener {
-            binding.viewModel?.loadPrevPost()
+            prevClickHandle()
         }
 
         binding.viewModel?.currentPost?.observe(viewLifecycleOwner) {
-//            TODO: Сделать проверку на POST NULL
-
-            it?.gifURL?.let {url ->
-                loadImage(url)
-            }
-
-            it?.description?.let { description ->
-                binding.post.post_text.text = description
-            }
+            onLoadPost(it)
         }
 
         binding.viewModel?.getCurrentIndex()?.observe(viewLifecycleOwner) {
             binding.previous.isEnabled = it > 0
+        }
+
+        binding.error.repeat_btn.setOnClickListener {
+            onRepeatButtonClick()
+        }
+    }
+
+    private fun onRepeatButtonClick() {
+        binding.error.isVisible = false
+        nextClickHandle()
+    }
+
+    private fun onLoadPost(it: Post?) {
+        if(it == null) {
+            binding.post.post_loader?.isVisible = false
+            binding.notFound.isVisible = true
+            return
+        }
+
+        it.gifURL?.let { url ->
+            loadImage(url)
+        }
+
+        it.description?.let { description ->
+            binding.post.post_text.text = description
+        }
+    }
+
+    private fun prevClickHandle() {
+        binding.viewModel?.loadPrevPost()
+    }
+
+    private fun nextClickHandle() {
+        binding.post.post_loader?.isVisible = true
+        if (checkNetworkConnection()) {
+            binding.viewModel?.loadNextPost()
+        } else {
+            binding.post.post_loader?.isVisible = false
+            binding.error.isVisible = true
         }
     }
 
@@ -68,6 +103,8 @@ class RandomPostFragment: BaseFragment() {
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
+                    binding.post.post_loader?.isVisible = false
+                    binding.error.isVisible = true
                     return false
                 }
 
@@ -82,6 +119,7 @@ class RandomPostFragment: BaseFragment() {
                     return false
                 }
             })
+            .transition(withCrossFade())
             .into(binding.post.post_image)
     }
 

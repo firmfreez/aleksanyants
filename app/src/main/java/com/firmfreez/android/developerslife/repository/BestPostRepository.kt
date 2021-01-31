@@ -15,22 +15,23 @@ class BestPostRepository @Inject constructor(){
     private val postList: ArrayList<Post> = ArrayList()
     private val _currentIndex: MutableLiveData<Int> = MutableLiveData<Int>().apply { value = -1 }
     val currentIndex: LiveData<Int> = _currentIndex
-    private var currentPage = -1
+    private var currentPage = 0
 
     suspend fun getNextBestPost(): Post? {
         val newValue = (currentIndex.value ?: -1) + 1
-        _currentIndex.postValue(newValue)
         return if(newValue >= postList.count()) {
-            currentPage++
             val post = bestPostService.getBestPosts(currentPage)
             post.result?.let {
                 if(it.count() == 0) {
                     return null
                 }
+                currentPage++
+                _currentIndex.postValue(newValue)
                 postList.addAll(it)
                 postList[newValue]
             }
         } else {
+            _currentIndex.postValue(newValue)
             postList[newValue]
         }
     }

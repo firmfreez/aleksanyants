@@ -17,20 +17,25 @@ class RandomPostRepository @Inject constructor() {
     val currentIndex: LiveData<Int> = _currentIndex
 
     suspend fun getNextRandomPost(): Post? {
+        Timber.d("Index: %s", currentIndex.value)
+        Timber.d("List length: %s", postList.count())
         val newValue = (currentIndex.value ?: -1) + 1
-        _currentIndex.postValue(newValue)
         return if(newValue >= postList.count()) {
             val post = randomPostService.getRandomPost()
             post?.let {
+                _currentIndex.postValue(newValue)
                 postList.add(it)
                 it
             }?: null
         } else {
+            _currentIndex.postValue(newValue)
             postList[newValue]
         }
     }
 
     fun getPreviousPost(): Post? {
+        Timber.d("Index: %s", currentIndex.value)
+        Timber.d("List length: %s", postList.count())
         val value = (currentIndex.value ?: -1)
         if(value > 0 && postList.count() > currentIndex.value ?: -1) {
             _currentIndex.value = value - 1

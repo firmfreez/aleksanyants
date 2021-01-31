@@ -18,6 +18,8 @@ class RandomPostViewModel: ViewModel() {
 
     init {
         App.instance.component?.inject(this)
+
+        loadNextPost()
     }
 
     fun loadNextPost() {

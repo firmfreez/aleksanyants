@@ -20,6 +20,8 @@ class BestPostViewModel: ViewModel() {
 
     init {
         App.instance.component?.inject(this)
+
+        loadNextPost()
     }
 
     fun loadNextPost() {
