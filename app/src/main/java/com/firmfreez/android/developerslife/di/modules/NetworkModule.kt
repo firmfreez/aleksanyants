@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -23,6 +24,12 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
+//        val logger = HttpLoggingInterceptor()
+//        logger.level = HttpLoggingInterceptor.Level.BODY
+//
+//        val ok = OkHttpClient.Builder()
+//        ok.addInterceptor(logger)
+//        return ok.build()
         return UnsafeOkHttpClient.getUnsafeOkHttpClient()
     }
 

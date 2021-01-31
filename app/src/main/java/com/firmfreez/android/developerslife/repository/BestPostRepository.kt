@@ -3,28 +3,33 @@ package com.firmfreez.android.developerslife.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.firmfreez.android.developerslife.models.Post
-import com.firmfreez.android.developerslife.services.RandomPostService
-import timber.log.Timber
+import com.firmfreez.android.developerslife.services.BestPostService
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RandomPostRepository @Inject constructor() {
-    @Inject lateinit var randomPostService: RandomPostService
+class BestPostRepository @Inject constructor(){
+    @Inject
+    lateinit var bestPostService: BestPostService
 
     private val postList: ArrayList<Post> = ArrayList()
     private val _currentIndex: MutableLiveData<Int> = MutableLiveData<Int>().apply { value = -1 }
     val currentIndex: LiveData<Int> = _currentIndex
+    private var currentPage = -1
 
-    suspend fun getNextRandomPost(): Post? {
+    suspend fun getNextBestPost(): Post? {
         val newValue = (currentIndex.value ?: -1) + 1
         _currentIndex.postValue(newValue)
         return if(newValue >= postList.count()) {
-            val post = randomPostService.getRandomPost()
-            post?.let {
-                postList.add(it)
-                it
-            }?: null
+            currentPage++
+            val post = bestPostService.getBestPosts(currentPage)
+            post.result?.let {
+                if(it.count() == 0) {
+                    return null
+                }
+                postList.addAll(it)
+                postList[newValue]
+            }
         } else {
             postList[newValue]
         }

@@ -14,10 +14,10 @@ class PostTypesAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
-            1 -> RandomPostFragment.newInstance()
-            2 -> LatestPostFragment.newInstance()
-            3 -> BestPostFragment.newInstance()
-            4 -> HottestPostFragment.newInstance()
+            0 -> RandomPostFragment.newInstance()
+            1 -> LatestPostFragment.newInstance()
+            2 -> BestPostFragment.newInstance()
+            3 -> HottestPostFragment.newInstance()
 
             else -> RandomPostFragment.newInstance()
         }

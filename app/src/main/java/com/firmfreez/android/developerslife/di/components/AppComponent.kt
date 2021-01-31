@@ -10,6 +10,9 @@ import com.firmfreez.android.developerslife.view.base.BaseFragment
 import com.firmfreez.android.developerslife.view.base.BaseNavigationActivity
 import com.firmfreez.android.developerslife.view.main.MainActivity
 import com.firmfreez.android.developerslife.view.main.MainViewModel
+import com.firmfreez.android.developerslife.view.posts.best.BestPostViewModel
+import com.firmfreez.android.developerslife.view.posts.hottest.HottestPostViewModel
+import com.firmfreez.android.developerslife.view.posts.latest.LatestPostViewModel
 import com.firmfreez.android.developerslife.view.posts.random.RandomPostViewModel
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
@@ -27,16 +30,14 @@ interface AppComponent {
     fun inject(baseActivity: BaseActivity)
     fun inject(baseNavigationActivity: BaseNavigationActivity)
     fun inject(baseFragment: BaseFragment)
-
     fun inject(mainActivity: MainActivity)
 
 //    ViewModels
     fun inject(mainViewModel: MainViewModel)
     fun inject(randomPostViewModel: RandomPostViewModel)
-
-//    Services
-    fun inject(randomPostService: RandomPostService)
-
+    fun inject(latestPostViewModel: LatestPostViewModel)
+    fun inject(hottestPostViewModel: HottestPostViewModel)
+    fun inject(bestPostViewModel: BestPostViewModel)
 
     @Component.Factory
     interface Factory {

@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 class RandomPostViewModel: ViewModel() {
     @Inject lateinit var repository: RandomPostRepository
-    private val _currentPost: MutableLiveData<Post> = MutableLiveData<Post>()
-    val currentPost: LiveData<Post> = _currentPost
+    private val _currentPost: MutableLiveData<Post?> = MutableLiveData<Post?>()
+    val currentPost: LiveData<Post?> = _currentPost
 
     init {
         App.instance.component?.inject(this)

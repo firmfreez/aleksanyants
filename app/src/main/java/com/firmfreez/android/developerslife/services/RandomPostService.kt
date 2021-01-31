@@ -7,7 +7,7 @@ class RandomPostService @Inject constructor(): ApiService() {
     /**
      * Возвращает случайный пост
      */
-    suspend fun getRandomPost(): Post {
+    suspend fun getRandomPost(): Post? {
         return execute { api.getRandomPost() }
     }
 }

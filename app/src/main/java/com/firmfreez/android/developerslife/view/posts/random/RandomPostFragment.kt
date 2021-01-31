@@ -41,11 +41,13 @@ class RandomPostFragment: BaseFragment() {
         }
 
         binding.viewModel?.currentPost?.observe(viewLifecycleOwner) {
-            it.gifURL?.let {url ->
+//            TODO: Сделать проверку на POST NULL
+
+            it?.gifURL?.let {url ->
                 loadImage(url)
             }
 
-            it.description?.let { description ->
+            it?.description?.let { description ->
                 binding.post.post_text.text = description
             }
         }
