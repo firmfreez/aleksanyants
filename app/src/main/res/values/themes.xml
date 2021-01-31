@@ -13,4 +13,229 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.DevelopersLife.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryColorDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primaryColor</item>
+        <item name="colorSecondaryVariant">@color/primaryColorDark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <!--Material Input Layout Theme-->
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="errorTextAppearance">@style/ErrorText</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textColorHint">@color/unfocusedColor</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/red</item>
+        <item name="colorControlHighlight">@color/primaryColorDark</item>
+    </style>
+
+    <style name="EditTextSingleLineAppearanceWithDrawable" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text_line_with_drawable_start</item>
+        <item name="backgroundTint">@color/text_input_stroke</item>
+        <item name="android:textCursorDrawable">@color/unfocusedColor</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:inputType">text</item>
+        <item name="maxLines">1</item>
+        <item name="android:drawablePadding">@dimen/dim_16</item>
+        <item name="android:paddingBottom">@dimen/dim_8</item>
+        <item name="android:paddingTop">@dimen/dim_16</item>
+    </style>
+
+    <style name="EditTextSingleLineAppearance" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text_line_without_drawable_start</item>
+        <item name="backgroundTint">@color/text_input_stroke</item>
+        <item name="android:textCursorDrawable">@color/unfocusedColor</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:inputType">text</item>
+        <item name="maxLines">1</item>
+        <item name="android:paddingBottom">@dimen/dim_16</item>
+        <item name="android:paddingTop">@dimen/dim_8</item>
+    </style>
+
+    <style name="SelectorTextView" parent="Widget.AppCompat.TextView">
+        <item name="selectable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/selectable_text_view</item>
+        <item name="backgroundTint">@color/text_input_stroke</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawablePadding">@dimen/dim_16</item>
+        <item name="android:paddingBottom">@dimen/dim_16</item>
+        <item name="android:paddingTop">@dimen/dim_24</item>
+    </style>
+
+    <style name="SwitchTextAppearance" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="selectable">true</item>
+        <item name="android:background">@drawable/edit_text_line_with_drawable_start</item>
+        <item name="backgroundTint">@color/text_input_stroke</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawablePadding">@dimen/dim_16</item>
+        <item name="android:paddingBottom">@dimen/dim_8</item>
+        <item name="android:paddingTop">@dimen/dim_16</item>
+    </style>
+
+    <style name="ErrorText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--DecoratorTextView-->
+    <style name="DecoratorTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/primaryColorLight</item>
+        <item name="android:layout_marginStart">@dimen/dim_8</item>
+        <item name="android:layout_marginTop">@dimen/dim_24</item>
+        <item name="android:layout_marginBottom">@dimen/dim_8</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <!-- Material Design type scale -->
+    <style name="Header1" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">96sp</item>
+        <item name="android:letterSpacing">-0.0156</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Header2" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:letterSpacing">-0.0083</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Header3" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Header4" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:letterSpacing">0.007</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Header5" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Header6" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0.0075</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Subtitle1" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.009</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Subtitle2" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.007</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Body1" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.0312</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Body1OldStyle" parent="Body1">
+        <item name="android:fontFamily">@font/lora</item>
+    </style>
+
+    <style name="Body2" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.0178</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Body2OldStyle" parent="Body2">
+        <item name="android:fontFamily">@font/lora</item>
+    </style>
+
+    <style name="Caption" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.033</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="CaptionSecondary" parent="Caption">
+        <item name="android:alpha">0.6</item>
+    </style>
+
+    <style name="CaptionOneLine" parent="Caption">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TextHeader" parent="android:Widget.Material.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_header</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextContent" parent="android:Widget.Material.Light.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/secondary_text_light</item>
+        <item name="android:textSize">@dimen/text_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="TextDescription" parent="android:Widget.Material.Light.TextView" tools:targetApi="lollipop">
+        <item name="android:textColor">@android:color/tertiary_text_light</item>
+        <item name="android:textSize">@dimen/text_description</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
 </resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.firmfreez.android.developerslife.view.posts.latest.LatestPostViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/post"
+            layout="@layout/post_item"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            app:layout_constraintBottom_toTopOf="@+id/btns_wrapper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/btns_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/white"
+                android:layout_margin="@dimen/dim_8"
+                app:tint="@color/orange"
+                android:src="@drawable/ic_round_arrow_back_24"
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_8"
+                app:backgroundTint="@color/white"
+                app:tint="@color/light_green"
+                android:src="@drawable/ic_round_arrow_forward_24"
+                />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/error"
+            layout="@layout/connection_error_main"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/not_found"
+            layout="@layout/empty_data_main"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
