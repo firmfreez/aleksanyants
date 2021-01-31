@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/error_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/dim_50"
+            android:layout_height="@dimen/dim_50"
             android:src="@drawable/ic_baseline_cloud_queue_24" />
 
         <TextView

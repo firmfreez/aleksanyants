@@ -21,7 +21,7 @@ class RandomPostRepository @Inject constructor() {
         Timber.d("List length: %s", postList.count())
         val newValue = (currentIndex.value ?: -1) + 1
         return if(newValue >= postList.count()) {
-            val post = randomPostService.getRandomPost()
+            val post = randomPostService.getRandomPostOrNull()
             post?.let {
                 _currentIndex.postValue(newValue)
                 postList.add(it)

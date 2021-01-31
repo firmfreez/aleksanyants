@@ -14,8 +14,8 @@
         <include
             android:id="@+id/post"
             layout="@layout/post_item"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
             app:layout_constraintBottom_toTopOf="@+id/btns_wrapper"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +34,9 @@
                 android:id="@+id/previous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:backgroundTint="@color/white"
                 android:layout_margin="@dimen/dim_8"
-                app:tint="@android:color/white"
+                app:tint="@color/orange"
                 android:src="@drawable/ic_round_arrow_back_24"
                 />
 
@@ -44,7 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dim_8"
-                app:tint="@android:color/white"
+                app:backgroundTint="@color/white"
+                app:tint="@color/light_green"
                 android:src="@drawable/ic_round_arrow_forward_24"
                 />
         </LinearLayout>
@@ -53,8 +55,8 @@
         <include
             android:id="@+id/error"
             layout="@layout/connection_error_main"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +67,8 @@
         <include
             android:id="@+id/not_found"
             layout="@layout/empty_data_main"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

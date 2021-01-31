@@ -12,13 +12,13 @@ interface Api {
     suspend fun getRandomPost(): Response<Post?>
 
     @GET("latest/{page_id}?json=true")
-    suspend fun getLatestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage>
+    suspend fun getLatestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage?>
 
     @GET("hot/{page_id}?json=true")
-    suspend fun getHottestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage>
+    suspend fun getHottestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage?>
 
     @GET("top/{page_id}?json=true")
-    suspend fun getBestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage>
+    suspend fun getBestPosts(@Path(value = "page_id", encoded = true) page: Int): Response<PostPage?>
 
     companion object {
         const val BACK_URL = "https://developerslife.ru/"

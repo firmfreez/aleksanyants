@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dim_0"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/not_found"

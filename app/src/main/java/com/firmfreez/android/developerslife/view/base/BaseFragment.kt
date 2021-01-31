@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -26,11 +27,12 @@ abstract class BaseFragment: Fragment() {
                              @ColorRes textColor: Int = R.color.black) {
         toolbar = view.findViewById(R.id.toolbar)
         toolbar?.background = ContextCompat.getDrawable(requireContext(), color)
-        toolbar?.setTitleTextColor(ContextCompat.getColor(requireContext(), textColor))
         toolbar?.setSubtitleTextColor(ContextCompat.getColor(requireContext(), textColor))
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         val actionBar = (activity as AppCompatActivity).supportActionBar
-        actionBar?.title = title
+        val toolbarTitle = toolbar?.findViewById<TextView>(R.id.toolbar_title)
+        toolbarTitle?.setTextColor(ContextCompat.getColor(requireContext(), textColor))
+        toolbarTitle?.text = title
         if (withBackButton) {
             actionBar?.setDisplayHomeAsUpEnabled(true)
             actionBar?.setDisplayShowHomeEnabled(true)

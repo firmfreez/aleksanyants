@@ -31,6 +31,7 @@ class HottestPostFragment: BaseFragment() {
         binding = FragmentHottestPostBinding.inflate(inflater, container, false)
         binding.post.post_loader?.isVisible = true
         binding.viewModel = ViewModelProvider(this).get(HottestPostViewModel::class.java)
+
         return binding.root
     }
 
@@ -44,7 +45,12 @@ class HottestPostFragment: BaseFragment() {
         }
 
         binding.viewModel?.currentPost?.observe(viewLifecycleOwner) {
-            onLoadPost(it)
+            if (!checkNetworkConnection()) {
+                binding.post.post_loader?.isVisible = false
+                binding.error.isVisible = true
+            } else {
+                onLoadPost(it)
+            }
         }
 
         binding.viewModel?.getCurrentIndex()?.observe(viewLifecycleOwner) {

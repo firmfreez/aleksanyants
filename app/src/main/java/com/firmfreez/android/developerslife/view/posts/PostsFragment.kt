@@ -21,17 +21,17 @@ class PostsFragment: BaseFragment() {
         binding = FragmentPostsBinding.inflate(inflater, container, false)
         binding.viewModel = ViewModelProvider(this).get(PostsViewModel::class.java)
         binding.viewPager.adapter = PostTypesAdapter(this)
-        setToolBar("Developers Life", false, binding.root, R.color.white, R.color.black)
+        setToolBar(getString(R.string.name), false, binding.root, R.color.white, R.color.black)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when(position) {
-                0 -> tab.text = "Случайные"
-                1 -> tab.text = "Последние"
-                2 -> tab.text = "Лучшие"
-                3 -> tab.text = "Горячие"
+                0 -> tab.text = getString(R.string.random)
+                1 -> tab.text = getString(R.string.latest)
+                2 -> tab.text = getString(R.string.best)
+                3 -> tab.text = getString(R.string.hottest)
             }
         }.attach()
     }

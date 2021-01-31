@@ -13,7 +13,7 @@
 
                     <solid android:color="#00FFFFFF" />
 
-                    <padding android:left="15dp"
+                    <padding android:left="@dimen/dim_15"
                         android:right="3dp"
                         android:top="3dp"
                         android:bottom="3dp" />

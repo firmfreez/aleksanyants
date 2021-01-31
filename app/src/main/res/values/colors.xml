@@ -22,4 +22,7 @@
     <color name="focusedColor">#1E1E1E</color>
 
     <color name="alpha_black">#80000000</color>
+
+    <color name="light_green">#558B2F</color>
+    <color name="orange">#FF8F00</color>
 </resources>

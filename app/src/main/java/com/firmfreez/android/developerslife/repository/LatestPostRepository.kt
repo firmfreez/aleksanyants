@@ -20,7 +20,7 @@ class LatestPostRepository @Inject constructor() {
         val newValue = (currentIndex.value ?: -1) + 1
         return if(newValue >= postList.count()) {
             val post = latestPostService.getLatestPosts(currentPage)
-            post.result?.let {
+            post?.result?.let {
                 if(it.count() == 0) {
                     return null
                 }
@@ -28,7 +28,7 @@ class LatestPostRepository @Inject constructor() {
                 _currentIndex.postValue(newValue)
                 postList.addAll(it)
                 postList[newValue]
-            }
+            }?: null
         } else {
             _currentIndex.postValue(newValue)
             postList[newValue]

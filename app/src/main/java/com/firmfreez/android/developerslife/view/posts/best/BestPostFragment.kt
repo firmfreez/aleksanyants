@@ -31,6 +31,7 @@ class BestPostFragment: BaseFragment() {
         binding = FragmentBestPostBinding.inflate(inflater, container, false)
         binding.post.post_loader?.isVisible = true
         binding.viewModel = ViewModelProvider(this).get(BestPostViewModel::class.java)
+
         return binding.root
     }
 
@@ -44,7 +45,12 @@ class BestPostFragment: BaseFragment() {
         }
 
         binding.viewModel?.currentPost?.observe(viewLifecycleOwner) {
-            onLoadPost(it)
+            if (!checkNetworkConnection()) {
+                binding.post.post_loader?.isVisible = false
+                binding.error.isVisible = true
+            } else {
+                onLoadPost(it)
+            }
         }
 
         binding.viewModel?.getCurrentIndex()?.observe(viewLifecycleOwner) {

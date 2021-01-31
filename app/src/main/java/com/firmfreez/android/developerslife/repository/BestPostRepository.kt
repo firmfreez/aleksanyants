@@ -21,7 +21,7 @@ class BestPostRepository @Inject constructor(){
         val newValue = (currentIndex.value ?: -1) + 1
         return if(newValue >= postList.count()) {
             val post = bestPostService.getBestPosts(currentPage)
-            post.result?.let {
+            post?.result?.let {
                 if(it.count() == 0) {
                     return null
                 }
@@ -29,7 +29,7 @@ class BestPostRepository @Inject constructor(){
                 _currentIndex.postValue(newValue)
                 postList.addAll(it)
                 postList[newValue]
-            }
+            }?: null
         } else {
             _currentIndex.postValue(newValue)
             postList[newValue]

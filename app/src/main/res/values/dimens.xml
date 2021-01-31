@@ -9,4 +9,8 @@
     <dimen name="dim_24">24dp</dimen>
     <dimen name="dim_32">32dp</dimen>
     <dimen name="dim_65">65dp</dimen>
+    <dimen name="dim_0">0dp</dimen>
+    <dimen name="dim_63">63dp</dimen>
+    <dimen name="dim_15">15dp</dimen>
+    <dimen name="dim_50">50dp</dimen>
 </resources>
